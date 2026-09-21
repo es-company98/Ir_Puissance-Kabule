@@ -221,6 +221,31 @@ const initHero3dLazy = () => {
     }
 };
 
+const initHeroCopySwap = () => {
+    const first = document.getElementById('hero-title');
+    const second = document.getElementById('hero-lead');
+    if (!first || !second) {
+        return;
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+    }
+
+    const holdMs = 6500;
+    let showingFirst = true;
+
+    const swap = () => {
+        showingFirst = !showingFirst;
+        first.classList.toggle('is-visible', showingFirst);
+        second.classList.toggle('is-visible', !showingFirst);
+        first.setAttribute('aria-hidden', String(!showingFirst));
+        second.setAttribute('aria-hidden', String(showingFirst));
+    };
+
+    window.setInterval(swap, holdMs);
+};
+
 const init = () => {
     initNavToggle();
     initHeaderScroll();
@@ -229,6 +254,7 @@ const init = () => {
     initStickyCta();
     initSlider();
     initContactForm();
+    initHeroCopySwap();
     initHero3dLazy();
 };
 

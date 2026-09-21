@@ -441,6 +441,34 @@ address {
     text-align: left;
 }
 
+.hero-rotator {
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+#hero-rotator #hero-title,
+#hero-rotator #hero-lead {
+    margin: 0;
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 0;
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+#hero-rotator #hero-title.is-visible,
+#hero-rotator #hero-lead.is-visible {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    z-index: 1;
+}
+
 .hero-content-compact .hero-quote {
     margin-bottom: 1.5rem;
 }
@@ -453,7 +481,6 @@ address {
     max-width: 28ch;
     margin-left: 0;
     margin-right: 0;
-    opacity: 0.95;
 }
 
 .hero-name {
@@ -1210,6 +1237,11 @@ address {
     gap: 3rem;
     width: max-content;
     animation: marqueeScroll 35s linear infinite;
+}
+
+.hero-marquee-wrap:hover .marquee-track,
+.hero-marquee-wrap:focus-within .marquee-track {
+    animation-play-state: paused;
 }
 
 .marquee-logo {
