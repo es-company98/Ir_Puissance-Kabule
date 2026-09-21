@@ -86,6 +86,7 @@
                     <div id="hero-3d-canvas-wrap" class="hero-3d-canvas-wrap" role="img" aria-label="Maquette 3D interactive d'une maison"></div>
                     <div id="hero-3d-controls" class="hero-3d-controls">
                         <button id="btn-build" class="btn btn-ghost btn-3d" type="button">Construire</button>
+                        <button id="btn-rotate" class="btn btn-ghost btn-3d" type="button" aria-pressed="true">Arrêter la rotation</button>
                         <button id="btn-reset" class="btn btn-ghost btn-3d" type="button">Réinitialiser</button>
                     </div>
                 </div>
@@ -284,14 +285,14 @@
             <div class="container">
                 <h2 id="realisations-title" class="section-title reveal">Mes réalisations</h2>
                 <p id="realisations-intro" class="realisations-intro reveal">
-                    Quelques étapes types d'un projet — les noms des propriétaires et photos définitives seront ajoutés au fur et à mesure.
+                    Les étapes d'un projet, puis une maison vue en maquette 3D — les photos de chantier réelles seront ajoutées ensuite.
                 </p>
                 <div id="slider" class="slider slider-portfolio reveal" aria-roledescription="carousel" aria-label="Galerie portfolio">
                     <div id="slider-viewport" class="slider-viewport">
                         <div id="slider-track" class="slider-track">
                             <article id="slide-1" class="slide is-active" aria-hidden="false">
                                 <figure id="slide-figure-1" class="slide-figure">
-                                    <img id="slide-img-1" src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Phase 01 — Conception et études, plan 3D architectural" width="800" height="500" loading="lazy">
+                                    <img id="slide-img-1" src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Plans et études — dessin architectural avant construction" width="800" height="500" loading="lazy">
                                 </figure>
                                 <div id="slide-content-1" class="slide-content slide-content-compact">
                                     <span id="slide-phase-1" class="slide-phase">Étape 1</span>
@@ -301,7 +302,7 @@
                             </article>
                             <article id="slide-2" class="slide" aria-hidden="true">
                                 <figure id="slide-figure-2" class="slide-figure">
-                                    <img id="slide-img-2" src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Phase 02 — Suivi de chantier" width="800" height="500" loading="lazy">
+                                    <img id="slide-img-2" src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Chantier en construction — suivi des travaux" width="800" height="500" loading="lazy">
                                 </figure>
                                 <div id="slide-content-2" class="slide-content slide-content-compact">
                                     <span id="slide-phase-2" class="slide-phase">Étape 2</span>
@@ -311,28 +312,48 @@
                             </article>
                             <article id="slide-3" class="slide" aria-hidden="true">
                                 <figure id="slide-figure-3" class="slide-figure">
-                                    <img id="slide-img-3" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Phase 03 — Maison moderne livrée" width="800" height="500" loading="lazy">
+                                    <img id="slide-img-3" src="assets/images/maquette-3d-vue-facade.jpg" alt="Maquette 3D — façade de la maison avec escalier extérieur" width="1280" height="720" loading="lazy">
                                 </figure>
                                 <div id="slide-content-3" class="slide-content slide-content-compact">
-                                    <span id="slide-phase-3" class="slide-phase">Étape 3</span>
-                                    <h3 id="slide-title-3" class="slide-title">Maison terminée</h3>
-                                    <p id="slide-desc-3" class="slide-desc">Finitions et remise d'un logement prêt à emménager.</p>
+                                    <span id="slide-phase-3" class="slide-phase">Maquette 3D</span>
+                                    <h3 id="slide-title-3" class="slide-title">Vue façade</h3>
+                                    <p id="slide-desc-3" class="slide-desc">La maison telle que conçue : volumes, escalier et clôture.</p>
+                                </div>
+                            </article>
+                            <article id="slide-4" class="slide" aria-hidden="true">
+                                <figure id="slide-figure-4" class="slide-figure">
+                                    <img id="slide-img-4" src="assets/images/maquette-3d-vue-entree.jpg" alt="Maquette 3D — entrée principale de la maison" width="1280" height="720" loading="lazy">
+                                </figure>
+                                <div id="slide-content-4" class="slide-content slide-content-compact">
+                                    <span id="slide-phase-4" class="slide-phase">Maquette 3D</span>
+                                    <h3 id="slide-title-4" class="slide-title">Vue entrée</h3>
+                                    <p id="slide-desc-4" class="slide-desc">Porche, baies vitrées et accès — le projet vu de près.</p>
+                                </div>
+                            </article>
+                            <article id="slide-5" class="slide" aria-hidden="true">
+                                <figure id="slide-figure-5" class="slide-figure">
+                                    <img id="slide-img-5" src="assets/images/maquette-3d-vue-ensemble.jpg" alt="Maquette 3D — vue d'ensemble de la maison et de la toiture" width="1280" height="720" loading="lazy">
+                                </figure>
+                                <div id="slide-content-5" class="slide-content slide-content-compact">
+                                    <span id="slide-phase-5" class="slide-phase">Maquette 3D</span>
+                                    <h3 id="slide-title-5" class="slide-title">Vue d'ensemble</h3>
+                                    <p id="slide-desc-5" class="slide-desc">Le projet complet, toiture et implantation sur le terrain.</p>
                                 </div>
                             </article>
                         </div>
-                    </div>
-                    <div id="slider-controls" class="slider-controls">
-                        <button id="slider-btn-prev" class="slider-btn" type="button" aria-label="Slide précédent">
-                            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 6L9 12L15 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <button id="slider-btn-prev" class="slider-btn slider-btn-prev" type="button" aria-label="Slide précédent">
+                            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M15 6L9 12L15 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <button id="slider-btn-next" class="slider-btn slider-btn-next" type="button" aria-label="Slide suivant">
+                            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 6L15 12L9 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </button>
                         <div id="slider-dots" class="slider-dots" role="tablist" aria-label="Choisir une slide">
                             <button id="slider-dot-0" class="slider-dot is-active" type="button" role="tab" aria-selected="true" aria-label="Slide 1"></button>
                             <button id="slider-dot-1" class="slider-dot" type="button" role="tab" aria-selected="false" aria-label="Slide 2"></button>
                             <button id="slider-dot-2" class="slider-dot" type="button" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+                            <button id="slider-dot-3" class="slider-dot" type="button" role="tab" aria-selected="false" aria-label="Slide 4"></button>
+                            <button id="slider-dot-4" class="slider-dot" type="button" role="tab" aria-selected="false" aria-label="Slide 5"></button>
                         </div>
-                        <button id="slider-btn-next" class="slider-btn" type="button" aria-label="Slide suivant">
-                            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M9 6L15 12L9 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </button>
                     </div>
                 </div>
                 <p id="realisations-cta-wrap" class="realisations-cta-wrap reveal">

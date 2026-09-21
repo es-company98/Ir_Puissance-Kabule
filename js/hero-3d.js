@@ -262,8 +262,9 @@ export const initHero3d = () => {
     const wrap = document.getElementById('hero-3d-canvas-wrap');
     const btnBuild = document.getElementById('btn-build');
     const btnReset = document.getElementById('btn-reset');
+    const btnRotate = document.getElementById('btn-rotate');
 
-    if (!wrap || !btnBuild || !btnReset) {
+    if (!wrap || !btnBuild || !btnReset || !btnRotate) {
         return false;
     }
 
@@ -304,6 +305,8 @@ export const initHero3d = () => {
     controls.enableDamping = true;
     controls.dampingFactor = 0.08;
     controls.enablePan = false;
+    controls.autoRotate = false;
+    controls.autoRotateSpeed = 1.15;
     controls.minDistance = 9;
     controls.maxDistance = 24;
     controls.minPolarAngle = 0.35;
@@ -351,13 +354,20 @@ export const initHero3d = () => {
 
     let buildToken = 0;
     let cinematic = false;
+    let autoRotate = !reducedMotion;
     let orbitAngle = Math.atan2(CAM_HOME.z - CAM_TARGET.z, CAM_HOME.x - CAM_TARGET.x);
     let orbitRadius = Math.hypot(CAM_HOME.x - CAM_TARGET.x, CAM_HOME.z - CAM_TARGET.z);
     let running = false;
 
+    const syncRotateButton = () => {
+        btnRotate.setAttribute('aria-pressed', String(autoRotate));
+        btnRotate.textContent = autoRotate ? 'Arrêter la rotation' : 'Faire tourner';
+    };
+
     const setControlsLocked = (locked) => {
         controls.enableRotate = !locked;
         controls.enableZoom = !locked;
+        controls.autoRotate = !locked && autoRotate;
     };
 
     const applyRest = (group, visible) => {
@@ -376,13 +386,27 @@ export const initHero3d = () => {
         controls.update();
     };
 
-    const hardReset = () => {
+    const showBuiltHouse = () => {
+        cinematic = false;
+        houseGroup.scale.set(1, 1, 1);
+        phases.forEach((group) => applyRest(group, true));
+        resetCamera();
+        btnBuild.disabled = false;
+        btnReset.disabled = false;
+        btnRotate.disabled = false;
+        syncRotateButton();
+        setControlsLocked(false);
+    };
+
+    const collapseHouse = () => {
         cinematic = false;
         houseGroup.scale.set(1, 1, 1);
         phases.forEach((group) => applyRest(group, false));
         resetCamera();
         btnBuild.disabled = false;
         btnReset.disabled = false;
+        btnRotate.disabled = true;
+        setControlsLocked(true);
     };
 
     const shouldAbort = (token) => token !== buildToken;
@@ -439,20 +463,31 @@ export const initHero3d = () => {
 
         houseGroup.scale.set(1, 1, 1);
         cinematic = false;
-        setControlsLocked(false);
         btnBuild.disabled = false;
+        btnRotate.disabled = false;
+        setControlsLocked(false);
     };
 
     const onBuild = () => {
         buildToken += 1;
         const token = buildToken;
-        hardReset();
+        collapseHouse();
         runTimeline(token);
     };
 
     const onReset = () => {
         buildToken += 1;
-        hardReset();
+        autoRotate = !reducedMotion;
+        showBuiltHouse();
+    };
+
+    const onRotate = () => {
+        if (cinematic) {
+            return;
+        }
+        autoRotate = !autoRotate;
+        syncRotateButton();
+        setControlsLocked(false);
     };
 
     const resize = () => {
@@ -496,7 +531,7 @@ export const initHero3d = () => {
         renderer.setAnimationLoop(null);
     };
 
-    hardReset();
+    showBuiltHouse();
     resize();
 
     const resizeObserver = new ResizeObserver(resize);
@@ -516,6 +551,7 @@ export const initHero3d = () => {
 
     btnBuild.addEventListener('click', onBuild);
     btnReset.addEventListener('click', onReset);
+    btnRotate.addEventListener('click', onRotate);
 
     startLoop();
     return true;
