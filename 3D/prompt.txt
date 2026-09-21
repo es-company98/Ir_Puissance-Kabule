@@ -1,0 +1,26 @@
+Bien reçu, on rectifie le tir : c'est pour le hero (à droite du texte principal), piloté par Cursor avec ton stack Vanilla JS / Three.js, en intégrant la rotation DAO, le bouton de construction, le bouton de reset, et le couplage direct du prompt + des images de référence que Cursor doit analyser pour assembler les volumes procéduraux.
+Voici la directive complète, claire et prête à l'emploi à donner à Cursor :
+Prompt complet pour Cursor (Hero 3D + Images de référence)
+> Rôle & Objectif :
+> Dans notre section .hero (layout flex/grid : texte à gauche, conteneur 3D #hero-3d-right à droite), intègre une scène interactive en Three.js (Vanilla) représentant la maison moderne à volumes mixtes visible dans les images de référence jointes (base enduit blanc, socle parement pierre, annexe latérale toit 4 pans gris anthracite, étage bardage bois, pergola bois, balcon).
+> Instructions techniques & interactives :
+>  * Scène & Canvas :
+>    * Canvas transparent ou fondu avec le design du hero, dimensionné exactement au conteneur #hero-3d-right.
+>    * Caméra perspective + éclairage directionnel/ambiant propre (ombres douces activées si performance OK).
+>  * Rotation style DAO (OrbitControls) :
+>    * Activer OrbitControls sur le canvas avec amortissement (enableDamping = true), rotation libre à la souris, zoom limité pour ne pas sortir du cadre du hero, pan désactivé ou restreint.
+>  * Modélisation procédurale (Groupes Three.js THREE.Group) :
+>    * Assembler les sous-ensembles dans un groupe racine houseGroup :
+>      * Socle / Fondations (pierre)
+>      * RDC corps principal (enduit blanc + menuiseries bois)
+>      * Annexe latérale (toit 4 pans gris anthracite + porte/fenêtres)
+>      * Pergola (poteaux + poutres bois)
+>      * Étage (bardage bois horizontal + balcon avec garde-corps barreaudé)
+>  * Logique d'animation (Construction + Reset) :
+>    * Ajouter deux boutons HTML sous/dans la zone hero : #btn-build et #btn-reset.
+>    * État initial (ou après Reset) : houseGroup invisible ou écἥelé à 0, position y abaissée sous le sol.
+>    * Clic sur #btn-build : Déclencher une animation séquentielle fluide (via requestAnimationFrame avec easing 1 - Math.pow(1-t, 3)) : fondations \rightarrow murs RDC \rightarrow annexe / toit 4 pans \rightarrow étage / pergola / balcon.
+>    * Clic sur #btn-reset : Réinitialiser instantanément ou par un fade rapide les positions/échelles à l'état initial.
+>  * Référence visuelle : S'inspirer strictement des proportions, de l'alternance blanc/bois/anthracite et de l'implantation volumétrique présentes dans les images jointes.
+>  * Performance : Boucle requestAnimationFrame propre, gérée proprement avec IntersectionObserver pour mettre en pause le rendu si le hero sort de l'écran.
+> 
