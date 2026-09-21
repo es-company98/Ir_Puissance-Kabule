@@ -184,6 +184,43 @@ const initContactForm = () => {
     });
 };
 
+const hideHero3dPanel = () => {
+    const panel = document.getElementById('hero-3d-right');
+    if (panel) {
+        panel.classList.add('is-unavailable');
+    }
+};
+
+const initHero3dLazy = () => {
+    const wrap = document.getElementById('hero-3d-canvas-wrap');
+    if (!wrap) {
+        return;
+    }
+
+    const start = () => {
+        import('./js/hero-3d.js')
+            .then((mod) => {
+                if (typeof mod.initHero3d !== 'function') {
+                    hideHero3dPanel();
+                    return;
+                }
+                const ok = mod.initHero3d();
+                if (ok === false) {
+                    hideHero3dPanel();
+                }
+            })
+            .catch(() => {
+                hideHero3dPanel();
+            });
+    };
+
+    if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(start, { timeout: 800 });
+    } else {
+        window.setTimeout(start, 0);
+    }
+};
+
 const init = () => {
     initNavToggle();
     initHeaderScroll();
@@ -192,6 +229,7 @@ const init = () => {
     initStickyCta();
     initSlider();
     initContactForm();
+    initHero3dLazy();
 };
 
 document.addEventListener('DOMContentLoaded', init);
