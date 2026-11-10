@@ -42,6 +42,14 @@ const showDevNoticePopup = () => {
     desc.textContent =
         'Ce site est en cours de finalisation. Les contenus affichés (textes, images, coordonnées) sont indicatifs et peuvent évoluer. Merci de votre compréhension.';
 
+    const closeBtn = document.createElement('button');
+    closeBtn.id = 'dev-notice-close';
+    closeBtn.type = 'button';
+    closeBtn.className = 'dev-notice-close';
+    closeBtn.setAttribute('aria-label', "Fermer l'avis de développement");
+    closeBtn.textContent = '\u00D7';
+
+    inner.appendChild(closeBtn);
     inner.appendChild(title);
     inner.appendChild(desc);
     notice.appendChild(inner);
@@ -72,6 +80,8 @@ const showDevNoticePopup = () => {
             dismiss();
         }
     };
+
+    closeBtn.addEventListener('click', dismiss);
 
     document.addEventListener('keydown', onKeyDown);
     document.body.appendChild(notice);
