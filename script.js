@@ -1,9 +1,5 @@
-const WHATSAPP_PHONE = '243896449595';
-
-const sanitizeText = (value, maxLength) => {
-    if (typeof value !== 'string') return '';
-    return value.trim().slice(0, maxLength);
-};
+import { initEtapesProjets } from './js/etapes-projets.js';
+import { initDevNoticePopup } from './js/popup.js';
 
 const initNavToggle = () => {
     const toggle = document.getElementById('nav-toggle');
@@ -78,112 +74,6 @@ const initParallax = () => {
     }, { passive: true });
 };
 
-const initSlider = () => {
-    const slides = Array.from(document.querySelectorAll('.slide'));
-    const dots = Array.from(document.querySelectorAll('.slider-dot'));
-    const btnPrev = document.getElementById('slider-btn-prev');
-    const btnNext = document.getElementById('slider-btn-next');
-
-    if (slides.length === 0) return;
-
-    let currentIndex = 0;
-
-    const goToSlide = (index) => {
-        const total = slides.length;
-        currentIndex = ((index % total) + total) % total;
-
-        slides.forEach((slide, i) => {
-            const isActive = i === currentIndex;
-            slide.classList.toggle('is-active', isActive);
-            slide.setAttribute('aria-hidden', String(!isActive));
-        });
-
-        dots.forEach((dot, i) => {
-            const isActive = i === currentIndex;
-            dot.classList.toggle('is-active', isActive);
-            dot.setAttribute('aria-selected', String(isActive));
-        });
-    };
-
-    btnPrev?.addEventListener('click', () => goToSlide(currentIndex - 1));
-    btnNext?.addEventListener('click', () => goToSlide(currentIndex + 1));
-
-    dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => goToSlide(i));
-    });
-
-    let autoplayTimer = setInterval(() => goToSlide(currentIndex + 1), 5000);
-
-    const slider = document.getElementById('slider');
-    slider?.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
-    slider?.addEventListener('mouseleave', () => {
-        autoplayTimer = setInterval(() => goToSlide(currentIndex + 1), 5000);
-    });
-};
-
-const initStickyCta = () => {
-    const bar = document.getElementById('sticky-cta');
-    const hero = document.getElementById('accueil');
-    if (!bar || !hero) return;
-
-    const show = () => {
-        bar.hidden = false;
-        bar.classList.add('is-visible');
-        document.body.classList.add('has-sticky-cta');
-    };
-
-    const hide = () => {
-        bar.classList.remove('is-visible');
-        document.body.classList.remove('has-sticky-cta');
-        window.setTimeout(() => {
-            if (!bar.classList.contains('is-visible')) {
-                bar.hidden = true;
-            }
-        }, 400);
-    };
-
-    const observer = new IntersectionObserver(
-        ([entry]) => {
-            if (entry.isIntersecting) {
-                hide();
-            } else {
-                show();
-            }
-        },
-        { threshold: 0.05 }
-    );
-
-    observer.observe(hero);
-};
-
-const initContactForm = () => {
-    const form = document.getElementById('contact-form');
-    const nameInput = document.getElementById('input-name');
-    const messageInput = document.getElementById('input-message');
-    const errorEl = document.getElementById('form-error');
-
-    if (!form || !nameInput || !messageInput || !errorEl) return;
-
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        errorEl.hidden = true;
-        errorEl.textContent = '';
-
-        const name = sanitizeText(nameInput.value, 100);
-        const message = sanitizeText(messageInput.value, 1000);
-
-        if (!name || !message) {
-            errorEl.textContent = 'Veuillez remplir tous les champs.';
-            errorEl.hidden = false;
-            return;
-        }
-
-        const text = `Bonjour, je m'appelle ${name}. ${message}`;
-        const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
-        window.open(url, '_blank', 'noopener,noreferrer');
-    });
-};
-
 const hideHero3dPanel = () => {
     const panel = document.getElementById('hero-3d-right');
     if (panel) {
@@ -247,13 +137,12 @@ const initHeroCopySwap = () => {
 };
 
 const init = () => {
+    initDevNoticePopup();
     initNavToggle();
     initHeaderScroll();
     initScrollReveal();
     initParallax();
-    initStickyCta();
-    initSlider();
-    initContactForm();
+    initEtapesProjets();
     initHeroCopySwap();
     initHero3dLazy();
 };
