@@ -7,17 +7,48 @@
     <meta name="theme-color" content="#0a1f38">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://images.unsplash.com data:; style-src 'self'; script-src 'self'; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com;">
     <title>Ingénieur Puissance Kabule | Portfolio — Bâtiment &amp; Architecture</title>
+    <link rel="canonical" href="https://ingpuissance.com/">
     <link rel="stylesheet" href="style.css">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Ingénieur Puissance Kabule",
-        "description": "Ingénieur en bâtiment : plans, suivi de chantier et réalisations à Butembo.",
-        "areaServed": "CD",
-        "telephone": "+243843858955",
-        "email": "contact@ingpuissance.com",
-        "url": "https://ingpuissance.com"
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "https://ingpuissance.com/#person",
+                "name": "Ingénieur Puissance Kabule",
+                "jobTitle": "Ingénieur en bâtiment",
+                "description": "Portfolio de l'ingénieur Puissance Kabule à Butembo : plans de maison, suivi de chantier et construction solide pour particuliers et promoteurs.",
+                "url": "https://ingpuissance.com/",
+                "email": "contact@ingpuissance.com",
+                "telephone": "+243843858955",
+                "worksFor": {
+                    "@id": "https://ingpuissance.com/#organization"
+                },
+                "knowsAbout": [
+                    "Ingénierie du bâtiment",
+                    "Plans et modélisation 3D",
+                    "Suivi de chantier"
+                ]
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://ingpuissance.com/#organization",
+                "name": "Cabinet d'Ingénierie Puissance Kabule",
+                "url": "https://ingpuissance.com/",
+                "logo": "https://ingpuissance.com/assets/images/logo-puissance-kabule.svg"
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://ingpuissance.com/#website",
+                "url": "https://ingpuissance.com/",
+                "name": "Ingénieur Puissance Kabule",
+                "publisher": {
+                    "@id": "https://ingpuissance.com/#person"
+                },
+                "description": "Site web démo — portfolio ingénieur en bâtiment à Butembo (contenus indicatifs)."
+            }
+        ]
     }
     </script>
 </head>
@@ -39,6 +70,7 @@
                     <li id="nav-item-accueil"><a id="nav-link-accueil" href="#accueil">Accueil</a></li>
                     <li id="nav-item-process"><a id="nav-link-process" href="#process">Étapes</a></li>
                     <li id="nav-item-etapes-projets"><a id="nav-link-etapes-projets" href="#etapes-creation-projets">Étapes projet</a></li>
+                    <li id="nav-item-realisations"><a id="nav-link-realisations" href="#realisations">Réalisations</a></li>
                 </ul>
             </nav>
             <a id="header-cta" class="header-cta" href="https://wa.me/243843858955?text=Bonjour%2C%20je%20souhaite%20demander%20un%20devis." rel="noopener noreferrer">Demander un devis</a>
@@ -77,7 +109,7 @@
                         <p id="hero-quote-text">« Construire le futur de Butembo avec rigueur et élégance »</p>
                     </blockquote>
                     <div id="hero-actions" class="hero-actions">
-                        <a id="hero-btn-primary" href="#etapes-creation-projets" class="btn btn-primary">Voir mes réalisations</a>
+                        <a id="hero-btn-primary" href="#realisations" class="btn btn-primary">Voir mes réalisations</a>
                         <a id="hero-btn-secondary" href="https://wa.me/243843858955?text=Bonjour%2C%20je%20souhaite%20demander%20un%20devis." class="btn btn-secondary" rel="noopener noreferrer">Demander un devis</a>
                     </div>
                 </div>
@@ -125,23 +157,18 @@
                 <ol id="process-steps" class="process-steps">
                     <li id="process-step-1" class="process-step reveal">
                         <span id="process-step-num-1" class="process-step-num">01</span>
-                        <h3 id="process-step-title-1" class="process-step-title">On en parle</h3>
-                        <p id="process-step-desc-1" class="process-step-desc">Vous m'expliquez votre terrain, votre budget et ce que vous voulez construire. Je vous dis clairement ce qui est possible.</p>
+                        <h3 id="process-step-title-1" class="process-step-title">Avant la première pierre</h3>
+                        <p id="process-step-desc-1" class="process-step-desc">Discussion, visite du terrain et plans avec visualisation 3D avant de commencer.</p>
                     </li>
                     <li id="process-step-2" class="process-step reveal reveal-delay-1">
                         <span id="process-step-num-2" class="process-step-num">02</span>
-                        <h3 id="process-step-title-2" class="process-step-title">Plans &amp; devis</h3>
-                        <p id="process-step-desc-2" class="process-step-desc">Je prépare les plans et une estimation. Vous voyez à quoi ressemblera la maison avant de commencer les travaux.</p>
+                        <h3 id="process-step-title-2" class="process-step-title">Au cœur de la construction</h3>
+                        <p id="process-step-desc-2" class="process-step-desc">Équipes qualifiées, suivi régulier et gestion des imprévus avec vous.</p>
                     </li>
                     <li id="process-step-3" class="process-step reveal reveal-delay-2">
                         <span id="process-step-num-3" class="process-step-num">03</span>
-                        <h3 id="process-step-title-3" class="process-step-title">Suivi du chantier</h3>
-                        <p id="process-step-desc-3" class="process-step-desc">Pendant la construction, je vérifie la solidité des ouvrages et le respect des plans. Vous êtes informé de l'avancement.</p>
-                    </li>
-                    <li id="process-step-4" class="process-step reveal reveal-delay-3">
-                        <span id="process-step-num-4" class="process-step-num">04</span>
-                        <h3 id="process-step-title-4" class="process-step-title">Livraison</h3>
-                        <p id="process-step-desc-4" class="process-step-desc">Finitions contrôlées : une maison prête à habiter, construite proprement et durablement.</p>
+                        <h3 id="process-step-title-3" class="process-step-title">Le projet prend vie</h3>
+                        <p id="process-step-desc-3" class="process-step-desc">Livraison contrôlée et garantie ingénieur de dix ans.</p>
                     </li>
                 </ol>
             </div>
@@ -270,23 +297,129 @@
             </div>
         </section>
 
+        <section id="realisations" class="section section-light section-compact" aria-labelledby="realisations-title">
+            <div class="container">
+                <h2 id="realisations-title" class="section-title reveal">Mes réalisations</h2>
+                <p id="realisations-intro" class="section-lead reveal">
+                    Quelques chantiers où j’ai suivi les plans, contrôlé les ouvrages et tenu le cap avec le client.
+                </p>
+                <div id="realisations-root" class="realisations-root">
+                    <div id="realisations-stage" class="realisations-stage"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section section-contact section-compact" aria-labelledby="contact-title">
+            <div id="contact-container" class="container">
+                <h2 id="contact-title" class="section-title reveal">Contact professionnel</h2>
+                <p id="contact-intro" class="section-lead reveal">
+                    Vous portez un projet de construction ? Décrivez-le en quelques lignes : je vous réponds avec des repères concrets pour avancer sereinement.
+                </p>
+                <div id="contact-layout" class="contact-layout reveal">
+                    <figure id="contact-visual" class="contact-visual">
+                        <img
+                            id="contact-engineer-img"
+                            class="contact-visual-img"
+                            src="assets/images/ingenieur-contact.jpg"
+                            alt="Ouvrier du bâtiment souriant sur chantier, casque jaune et tenue de sécurité"
+                            width="960"
+                            height="640"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                        <figcaption id="contact-visual-overlay" class="contact-visual-overlay">
+                            <p id="contact-overlay-name" class="contact-overlay-name">Ing. Puissance Kabule</p>
+                            <address id="contact-overlay-address" class="contact-overlay-address">
+                                <p id="contact-overlay-tel">
+                                    <span id="contact-overlay-tel-label" class="contact-overlay-label">Téléphone</span>
+                                    <a id="contact-overlay-tel-link" class="contact-overlay-link" href="tel:+243843858955">+243 843 858 955</a>
+                                </p>
+                                <p id="contact-overlay-email">
+                                    <span id="contact-overlay-email-label" class="contact-overlay-label">E-mail</span>
+                                    <a id="contact-overlay-email-link" class="contact-overlay-link" href="mailto:contact@ingpuissance.com">contact@ingpuissance.com</a>
+                                </p>
+                            </address>
+                        </figcaption>
+                    </figure>
+                    <div id="contact-form-panel" class="contact-form-panel">
+                        <form id="contact-form" class="contact-form" method="post" novalidate>
+                            <div id="contact-field-name" class="contact-field">
+                                <label id="contact-label-name" class="contact-label" for="contact-input-name">Nom</label>
+                                <input
+                                    id="contact-input-name"
+                                    class="contact-input"
+                                    type="text"
+                                    name="name"
+                                    autocomplete="name"
+                                    required
+                                    minlength="2"
+                                    maxlength="120"
+                                >
+                            </div>
+                            <div id="contact-field-email" class="contact-field">
+                                <label id="contact-label-email" class="contact-label" for="contact-input-email">E-mail</label>
+                                <input
+                                    id="contact-input-email"
+                                    class="contact-input"
+                                    type="email"
+                                    name="email"
+                                    autocomplete="email"
+                                    required
+                                    maxlength="254"
+                                >
+                            </div>
+                            <div id="contact-field-message" class="contact-field contact-field--grow">
+                                <label id="contact-label-message" class="contact-label" for="contact-input-message">Message</label>
+                                <textarea
+                                    id="contact-input-message"
+                                    class="contact-textarea"
+                                    name="message"
+                                    required
+                                    minlength="10"
+                                    maxlength="4000"
+                                ></textarea>
+                            </div>
+                            <button id="contact-submit" class="btn btn-primary contact-submit" type="submit">Envoyer</button>
+                        </form>
+                        <p id="contact-form-status" class="contact-form-status" role="status" aria-live="polite"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer id="site-footer" class="site-footer">
         <div id="footer-inner" class="container footer-inner">
-            <div id="footer-top" class="footer-top">
-                <div id="footer-brand" class="footer-brand">
+            <div id="footer-grid" class="footer-grid">
+                <div id="footer-brand" class="footer-col footer-col-brand">
                     <p id="footer-brand-name" class="footer-brand-name">Ing. Puissance Kabule</p>
-                    <p id="footer-brand-tag" class="footer-brand-tag">Ingénierie &amp; architecture — Butembo, RDC</p>
+                    <p id="footer-brand-tag" class="footer-brand-tag">Ingénierie et architecture — études, suivi de chantier et conception à Butembo, RDC.</p>
                 </div>
-                <nav id="footer-nav" class="footer-nav" aria-label="Pied de page">
-                    <a id="footer-link-devis" class="footer-nav-link footer-nav-link-accent" href="https://wa.me/243843858955?text=Bonjour%2C%20je%20souhaite%20demander%20un%20devis." rel="noopener noreferrer">Demander un devis</a>
-                    <a id="footer-link-tel" class="footer-nav-link" href="tel:+243843858955">+243 843 858 955</a>
-                    <a id="footer-link-whatsapp" class="footer-nav-link" href="https://wa.me/243843858955" rel="noopener noreferrer">WhatsApp</a>
-                    <a id="footer-link-email" class="footer-nav-link" href="mailto:contact@ingpuissance.com">contact@ingpuissance.com</a>
+                <nav id="footer-nav-sections" class="footer-col" aria-labelledby="footer-nav-title">
+                    <h3 id="footer-nav-title" class="footer-col-title">Sur le site</h3>
+                    <ul id="footer-nav-list" class="footer-link-list">
+                        <li id="footer-nav-item-accueil"><a id="footer-link-accueil" class="footer-link" href="#accueil">Accueil</a></li>
+                        <li id="footer-nav-item-process"><a id="footer-link-process" class="footer-link" href="#process">Étapes</a></li>
+                        <li id="footer-nav-item-etapes"><a id="footer-link-etapes-projets" class="footer-link" href="#etapes-creation-projets">Étapes projet</a></li>
+                        <li id="footer-nav-item-about"><a id="footer-link-about" class="footer-link" href="#about">À propos</a></li>
+                        <li id="footer-nav-item-realisations"><a id="footer-link-realisations" class="footer-link" href="#realisations">Réalisations</a></li>
+                    </ul>
                 </nav>
+                <div id="footer-contact" class="footer-col">
+                    <h3 id="footer-contact-title" class="footer-col-title">Contact</h3>
+                    <address id="footer-address" class="footer-address">
+                        <p id="footer-location">Butembo, Nord-Kivu — RDC</p>
+                        <p id="footer-tel-wrap">Tél. <a id="footer-link-tel" class="footer-link" href="tel:+243843858955">+243 843 858 955</a></p>
+                        <p id="footer-email-wrap">E-mail <a id="footer-link-email" class="footer-link" href="mailto:contact@ingpuissance.com">contact@ingpuissance.com</a></p>
+                    </address>
+                    <a id="footer-link-whatsapp" class="footer-whatsapp-btn" href="https://wa.me/243843858955?text=Bonjour%2C%20je%20souhaite%20demander%20un%20devis." rel="noopener noreferrer">Discuter sur WhatsApp</a>
+                </div>
             </div>
-            <p id="footer-copyright" class="footer-copyright">© 2026 Ingénieur Puissance Kabule. Tous droits réservés.</p>
+            <div id="footer-bottom" class="footer-bottom">
+                <a id="footer-link-devis" class="footer-devis-link" href="https://wa.me/243843858955?text=Bonjour%2C%20je%20souhaite%20demander%20un%20devis." rel="noopener noreferrer">Demander un devis</a>
+                <p id="footer-copyright" class="footer-copyright">© 2026 Ingénieur Puissance Kabule. Tous droits réservés.</p>
+            </div>
         </div>
     </footer>
 

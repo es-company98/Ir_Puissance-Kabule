@@ -1,3 +1,6 @@
+/** Réactiver le bandeau : passer à `true`. */
+const DEV_NOTICE_ENABLED = false;
+
 const SESSION_KEY = 'puissance-dev-notice-dismissed';
 const NOTICE_DELAY_MS = 10000;
 const NOTICE_VISIBLE_MS = 10000;
@@ -90,6 +93,10 @@ const showDevNoticePopup = () => {
 };
 
 export const initDevNoticePopup = () => {
+    if (!DEV_NOTICE_ENABLED) {
+        return;
+    }
+
     if (isNoticeDismissed()) {
         return;
     }

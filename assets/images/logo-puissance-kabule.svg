@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="Logo I.P Ingénieur Puissance Kabule">
+  <rect width="256" height="256" fill="#0a1f38"/>
+  <rect x="32" y="32" width="192" height="192" rx="16" fill="#2563eb"/>
+  <text x="128" y="150" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="72" font-weight="700">I.P</text>
+</svg>

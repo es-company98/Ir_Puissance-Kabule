@@ -1,5 +1,7 @@
 import { initEtapesProjets } from './js/etapes-projets.js';
+import { initRealisations } from './js/realisations.js';
 import { initDevNoticePopup } from './js/popup.js';
+import { initContactForm } from './js/contact-form.js';
 
 const initNavToggle = () => {
     const toggle = document.getElementById('nav-toggle');
@@ -143,6 +145,8 @@ const init = () => {
     initScrollReveal();
     initParallax();
     initEtapesProjets();
+    initRealisations();
+    initContactForm();
     initHeroCopySwap();
     initHero3dLazy();
 };
